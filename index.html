@@ -37,7 +37,38 @@ body {
   color: var(--text);
   font-size: 15px;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased; .clients-bar {
+  background: #1E1340;
+  padding: 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.clients-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.clients-divider {
+  width: 1px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+.clients-logos {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+.clients-logos img {
+  height: 28px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
 }
 
 /* ── NAV ── */
@@ -140,14 +171,17 @@ nav {
 }
 
 /* clients bar */
-.clients-bar {
-  background: var(--navy);
-  padding: 1.1rem 3rem;
-  display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap;
-}
-.clients-bar img {
-  width: 100%; display: block;
-}
+<div class="clients-bar">
+  <span class="clients-label">We've been honored<br>to work with...</span>
+  <div class="clients-divider"></div>
+  <div class="clients-logos">
+    <img src="images/logo-messianic.png" alt="Messianic Times">
+    <img src="images/logo-elevate.png" alt="Elevate Medical Aesthetics">
+    <img src="images/logo-joseph.png" alt="Joseph Project International">
+    <img src="images/logo-skingenuity.png" alt="Skingenuity">
+    <img src="images/logo-mjaa.png" alt="MJAA">
+  </div>
+</div>
 
 /* ── SECTION BASE ── */
 section { padding: 5.5rem 3rem; }

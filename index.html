@@ -42,19 +42,20 @@ body {
 
 .clients-bar {
   background: var(--navy);
-  width: 100%;
-  padding: 18px 0;
+  width: calc(100% - 4rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 24px;
   min-height: 64px;
   display: block;
 }
 .clients-inner {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin: 0;
+  padding: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 36px;
 }
 .clients-label {
@@ -227,28 +228,12 @@ section#hero { padding: 66px 0 0; }
   align-items: center;
   gap: 4rem;
 }
-.about-eyebrow {
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--purple-dark);
-  font-weight: 700;
-  margin-bottom: 0.35rem;
-}
-.about-title {
-  font-family: var(--display);
-  font-size: 3rem;
-  font-weight: 900;
-  line-height: 1.05;
-  color: #111;
-  margin-bottom: 1.5rem;
-}
 .about-copy {
-  max-width: 480px;
+  max-width: 500px;
 }
-.about-copy p {
+.about-copy p:not(.section-eyebrow) {
   font-size: 0.9rem;
-  line-height: 1.25;
+  line-height: 1.35;
   color: #111;
   margin-bottom: 0.85rem;
 }
@@ -443,57 +428,47 @@ footer {
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-title { font-size: 2.2rem; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
-  .clients-bar { padding: 16px 0; }
+  .clients-bar {
+    width: calc(100% - 2.5rem);
+    padding: 16px 18px;
+  }
   .clients-inner {
-  padding: 0 1.25rem;
-  gap: 18px;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.clients-label {
-  white-space: normal;
-  text-align: left;
-  min-width: 155px;
-}
-
-.clients-logos {
-  gap: 22px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
+    gap: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .clients-label {
+    white-space: normal;
+    text-align: left;
+  }
+  .clients-logos {
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
   .clients-logos img { max-height: 32px; max-width: 140px; }
 
   #about {
     padding: 4rem 1.25rem;
   }
-
   .about-inner {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-
-  .about-title {
-    font-size: 2.4rem;
-  }
-
   .about-copy {
     max-width: 100%;
   }
-
-  .about-copy p {
+  .about-copy p:not(.section-eyebrow) {
     font-size: 0.9rem;
     line-height: 1.35;
   }
-
   .about-images {
     min-height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
   }
-
   .about-image,
   .about-image.agus,
   .about-image.miri {
@@ -547,27 +522,6 @@ footer {
         <img src="logo-skingenuity.png" alt="Skingenuity">
         <img src="logo-mjaa.png" alt="MJAA">
       </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-inner">
-    <div class="about-copy">
-      <p class="about-eyebrow">About Us</p>
-      <h2 class="about-title">Who we are</h2>
-
-      <p>Leah Social Media &amp; Graphic Design Co-Founders Agustin and Miranda Wainberg are dedicated to creating authentic, emotional connections between you and your audience.</p>
-      <p>Agustin, originally from Buenos Aires, Argentina, brings years of experience in music, ministry, and graphic design. His passion for creativity and connecting with people shines through in every project.</p>
-      <p>Miranda, a Houston native, has 11 years of experience in TV journalism, public relations, and social media. She excels in helping others tell their stories in fresh and innovative ways.</p>
-      <p>Outside of work, they are passionate about their two children and actively serving their local congregation.</p>
-    </div>
-
-    <div class="about-images" aria-label="Agustin and Miranda Wainberg">
-      <img class="about-image agus" src="Agus%20Image.png" alt="Agustin Wainberg">
-      <img class="about-image miri" src="Miri%20Image.png" alt="Miranda Wainberg">
     </div>
   </div>
 </section>
@@ -694,6 +648,28 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-copy">
+      <p class="section-eyebrow">About Us</p>
+      <h2 class="section-title">Who we are</h2>
+
+      <p>Leah Social Media &amp; Graphic Design Co-Founders Agustin and Miranda Wainberg are dedicated to creating authentic, emotional connections between you and your audience.</p>
+      <p>Agustin, originally from Buenos Aires, Argentina, brings years of experience in music, ministry, and graphic design. His passion for creativity and connecting with people shines through in every project.</p>
+      <p>Miranda, a Houston native, has 11 years of experience in TV journalism, public relations, and social media. She excels in helping others tell their stories in fresh and innovative ways.</p>
+      <p>Outside of work, they are passionate about their two children and actively serving their local congregation.</p>
+    </div>
+
+    <div class="about-images" aria-label="Agustin and Miranda Wainberg">
+      <img class="about-image agus" src="Agus%20Image.png" alt="Agustin Wainberg">
+      <img class="about-image miri" src="Miri%20Image.png" alt="Miranda Wainberg">
+    </div>
+  </div>
+</section>
+
+
 
 <!-- CONTACT -->
 <section id="contact">

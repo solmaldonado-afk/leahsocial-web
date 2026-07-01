@@ -431,28 +431,41 @@ footer {
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-title { font-size: 2.2rem; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
-  .clients-bar {
-    width: 100%;
-    padding: 16px 0;
-  }
-  .clients-inner {
-    padding: 0 1.25rem;
-    gap: 18px;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-  }
-  .clients-label {
-    white-space: normal;
-    text-align: left;
-  }
-  .clients-logos {
-    gap: 22px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
-  .clients-logos img { max-height: 32px; max-width: 140px; }
+.clients-bar{
+    width:100%;
+    padding:18px 0;
+}
 
+.clients-inner{
+    max-width:1200px;
+    width:100%;
+    margin:0 auto;
+    padding:0 24px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+}
+
+.clients-label{
+    text-align:center;
+    white-space:normal;
+}
+
+.clients-logos{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.clients-logos img{
+    max-height:28px;
+    max-width:120px;
+}
   #about {
     padding: 4rem 1.25rem;
   }

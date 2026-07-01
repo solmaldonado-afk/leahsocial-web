@@ -42,35 +42,37 @@ body {
 
 .clients-bar {
   background: var(--navy);
-  width: calc(100% - 4rem);
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 18px 24px;
+  width: 100%;
+  padding: 18px 0;
   min-height: 64px;
-  display: block;
 }
+
 .clients-inner {
   width: 100%;
-  margin: 0;
-  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 36px;
 }
+
 .clients-label {
   font-size: 0.82rem;
   color: rgba(255,255,255,0.78);
   line-height: 1.4;
   white-space: nowrap;
 }
+
 .clients-logos {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 34px;
   flex-wrap: nowrap;
 }
+
 .clients-logos img {
   max-height: 38px;
   width: auto;

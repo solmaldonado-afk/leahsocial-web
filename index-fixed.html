@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leah Social — Creative Marketing & Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple:     #7C5CBF;
+  --purple-btn: #6B4EAA;
+  --purple-dark:#2D1B69;
+  --navy:       #1E1340;
+  --cream:      #FAF1E7;
+  --cream-card: #EDE2D6;
+  --dark:       #1A1A2E;
+  --text:       #2C2C3A;
+  --muted:      #6B6880;
+  --border:     #2C2C3A;
+  --white:      #ffffff;
+  --hero-bg1:   #D8D0F0;
+  --hero-bg2:   #EDD4E8;
+  --hero-bg3:   #F5D8E8;
+  --display: 'Playfair Display', Georgia, serif;
+  --sans:    'Nunito Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.clients-bar {
+  background: var(--navy);
+  padding: 16px 48px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+}
+.clients-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.clients-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.clients-logos img {
+  max-height: 30px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.82;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 40px;
+  min-height: 54px;
+  background: var(--cream);
+  backdrop-filter: blur(10px);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+}
+.nav-logo-box {
+  width: 42px; height: 42px;
+  background: var(--purple-dark);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  line-height: 1;
+}
+.nav-logo-ls {
+  font-family: var(--display);
+  font-size: 1rem; font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.nav-logo-text {
+  font-size: 0.48rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+}
+.nav-links {
+  display: flex; gap: 2.5rem; list-style: none; align-items: center;
+}
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  font-weight: 600; color: var(--text); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--purple); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 76vh;
+  padding-top: 54px;
+  background: linear-gradient(135deg, var(--hero-bg1) 0%, var(--hero-bg2) 55%, var(--hero-bg3) 100%);
+  display: flex; flex-direction: column;
+}
+.hero-inner {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 3rem 2rem 3.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 2rem;
+}
+.hero-left { }
+.hero-title {
+  font-family: var(--display);
+  font-size: 3.8rem;
+  font-weight: 900;
+  line-height: 1.06;
+  color: var(--text);
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+.hero-sub {
+  font-size: 1rem; color: var(--text); opacity: 0.75;
+  line-height: 1.6; margin-bottom: 2rem; max-width: 380px;
+}
+.btn-purple {
+  display: inline-block;
+  background: var(--purple);
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 2rem;
+  border-radius: 3px;
+  border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-purple:hover { background: var(--purple-btn); transform: translateY(-1px); }
+
+/* hero illustration area */
+.hero-right {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.hero-illustration {
+  width: 100%; max-width: 500px; height: auto;
+}
+
+/* ── SECTION BASE ── */
+section { padding: 5.5rem 3rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--purple); font-weight: 700; margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: var(--display);
+  font-size: 2.8rem; font-weight: 800; line-height: 1.15;
+  color: var(--text); margin-bottom: 2.5rem;
+}
+.section-title em { font-style: italic; }
+
+/* ── SERVICES ── */
+#services {
+  background: var(--cream);
+  padding: 4rem 3rem 4rem;
+}
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin-bottom: 3rem;
+}
+.service-card {
+  background: var(--cream-card);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 2rem 1.6rem 1.75rem;
+  display: flex; flex-direction: column;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(44,28,105,0.12);
+}
+.service-icon-area {
+  width: 48px; height: 48px;
+  background: rgba(124, 92, 191, 0.12);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem; color: var(--purple);
+}
+.service-icon-area svg { width: 24px; height: 24px; }
+.service-title {
+  font-family: var(--display);
+  font-size: 1.25rem; font-weight: 800; line-height: 1.2;
+  color: var(--text); margin-bottom: 0.65rem;
+}
+.service-title em { font-style: italic; }
+.service-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+.services-cta { text-align: center; }
+
+/* ── PORTFOLIO ── */
+#portfolio {
+  background: var(--cream-card);
+  padding: 4rem 3rem 4rem;
+}
+.portfolio-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+.p-item {
+  background: var(--cream-card);
+  border-radius: 6px; overflow: hidden;
+  position: relative; cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.p-item:hover { transform: scale(1.015); box-shadow: 0 10px 32px rgba(0,0,0,0.12); }
+.p-item.large {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.p-item img, .p-item .p-placeholder {
+  width: 100%; height: 100%; object-fit: cover;
+  display: block; min-height: 160px;
+}
+.p-placeholder {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #e0d8f0 0%, #ddd5ea 100%);
+  min-height: 200px;
+}
+.p-item.large .p-placeholder { min-height: 420px; }
+.p-placeholder svg { width: 40px; height: 40px; color: rgba(124,92,191,0.3); }
+.portfolio-cta { text-align: center; margin-top: 1rem; }
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--navy);
+  padding: 5.5rem 3rem;
+}
+.contact-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.contact-left { }
+.contact-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); font-weight: 700; margin-bottom: 0.75rem;
+}
+.contact-title {
+  font-family: var(--display);
+  font-size: 3rem; font-weight: 900; line-height: 1.1;
+  color: var(--white); margin-bottom: 1.25rem;
+}
+.contact-sub { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+.contact-right { }
+.form-field { margin-bottom: 1rem; }
+.form-field input {
+  width: 100%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input::placeholder { color: rgba(255,255,255,0.35); }
+.form-field input:focus { border-color: var(--purple); }
+.form-label {
+  display: block;
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4); margin-top: 0.35rem; padding-left: 0.2rem;
+}
+.btn-purple-full {
+  width: 100%; padding: 1rem;
+  background: var(--purple); color: var(--white);
+  font-family: var(--sans); font-size: 0.78rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; border-radius: 4px; cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.btn-purple-full:hover { background: var(--purple-btn); }
+
+/* ── FOOTER ── */
+footer {
+  background: #111;
+  padding: 2rem 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.footer-logo-box {
+  width: 32px; height: 32px;
+  background: var(--purple-dark);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+}
+.footer-logo-ls { font-family: var(--display); font-size: 0.8rem; font-weight: 800; color: white; }
+.footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: white; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-title   { animation: fadeUp 0.7s ease both; }
+.hero-sub     { animation: fadeUp 0.7s 0.1s ease both; }
+.btn-purple   { animation: fadeUp 0.7s 0.2s ease both; }
+.hero-right   { animation: fadeUp 0.8s 0.15s ease both; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  nav { padding: 0.85rem 1.25rem; }
+  .nav-links li:not(:last-child) { display: none; }
+  .hero-inner { grid-template-columns: 1fr; padding: 3rem 1.25rem 2rem; }
+  .hero-right { display: none; }
+  .hero-title { font-size: 2.6rem; }
+  section { padding: 4rem 1.25rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .portfolio-mosaic { grid-template-columns: 1fr 1fr; }
+  .p-item.large { grid-column: 1 / 3; grid-row: auto; }
+  .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-title { font-size: 2.2rem; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  .clients-bar { padding: 14px 20px; gap: 18px; flex-direction: column; }
+  .clients-label { white-space: normal; text-align: center; }
+  .clients-logos { gap: 20px; }
+  .clients-logos img { max-height: 26px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <img src="Logo.png" alt="Leah Social" style="height:36px; width:auto; display:block;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#portfolio">Our Work</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <h1 class="hero-title">People forget facts.<br>They remember stories.</h1>
+      <p class="hero-sub">Creative marketing and design<br>for organizations with a story worth sharing.</p>
+      <a href="#contact" class="btn-purple">Let's Talk</a>
+    </div>
+    <div class="hero-right">
+      <!-- Illustration matching the Figma design -->
+      <img src="Banner.png" alt="Leah Social illustration" class="hero-illustration" style="mix-blend-mode: multiply;">
+    </div>
+  </div>
+
+  <!-- Clients bar -->
+  <div class="clients-bar">
+    <span class="clients-label">We've been honored to work with:</span>
+    <div class="clients-logos">
+      <img src="logo-messianic.png" alt="Messianic Times">
+      <img src="logo-elevate.png" alt="Elevate Medical Aesthetics">
+      <img src="logo-joseph.png" alt="Joseph Project International">
+      <img src="logo-skingenuity.png" alt="Skingenuity">
+      <img src="logo-mjaa.png" alt="MJAA">
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-eyebrow">What we do</p>
+    <h2 class="section-title">Services tailored for <em>impact</em></h2>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Graphic<br><em>Design</em></h3>
+        <p class="service-desc">Beautiful, high-quality designs for print and digital — postcards, flyers, brochures, banners, signage, and more. Strong relationships with printers nationwide.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="5"/><path d="M3 21c0-4.418 4.03-8 9-8s9 3.582 9 8"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Brand<br><em>Identity</em></h3>
+        <p class="service-desc">Custom logos, color palettes, typography, and full brand guidelines to build a strong, recognizable brand that stays cohesive across every touchpoint.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 2H3v16h5l3 4 3-4h7V2z"/><path d="M8 10h8M8 6h8M8 14h4"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Social Media<br><em>Management</em></h3>
+        <p class="service-desc">Strategy, engaging content creation, community management, and live event coverage to keep your audience connected and inspired.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l4-8 4 4 3-6 4 10"/><circle cx="7" cy="8" r="1" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Ad<br><em>Campaigns</em></h3>
+        <p class="service-desc">Targeted social media ad campaigns with compelling graphics, videos, and messaging — with performance tracking to ensure the best return on investment.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><polygon points="10,8 16,12 10,16"/>
+          </svg>
+        </div>
+        <h3 class="service-title">YouTube<br><em>&amp; Video</em></h3>
+        <p class="service-desc">Channel optimization, compelling thumbnails, description writing, and editing YouTube Shorts from your top-performing long-form content.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon-area">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 7 10-7"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Email<br><em>Marketing</em></h3>
+        <p class="service-desc">Impactful email campaigns, newsletters, and special promotions designed to keep your community informed, engaged, and inspired.</p>
+      </div>
+
+    </div>
+    <div class="services-cta">
+      <a href="#contact" class="btn-purple">Let's Talk</a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-inner">
+    <p class="section-eyebrow">Our Work</p>
+    <h2 class="section-title">Stories we've helped <em>tell</em></h2>
+
+    <div class="portfolio-mosaic">
+      <!-- Large left item -->
+      <div class="p-item large">
+        <div class="p-placeholder" style="background: linear-gradient(160deg,#D8D0F0,#C8B8E8); min-height:420px;">
+          <svg viewBox="0 0 60 60" fill="none"><rect x="10" y="10" width="40" height="40" rx="6" stroke="rgba(124,92,191,0.35)" stroke-width="2"/><circle cx="30" cy="30" r="12" stroke="rgba(124,92,191,0.35)" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <!-- Top right 2 items -->
+      <div class="p-item">
+        <div class="p-placeholder" style="background: linear-gradient(135deg,#EDE8F8,#E0D4F4); min-height:200px;">
+          <svg viewBox="0 0 60 60" fill="none"><rect x="8" y="16" width="44" height="28" rx="4" stroke="rgba(124,92,191,0.3)" stroke-width="2"/><path d="M8 24h44" stroke="rgba(124,92,191,0.3)" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <div class="p-item">
+        <div class="p-placeholder" style="background: linear-gradient(135deg,#F5EDF8,#EDD4E8); min-height:200px;">
+          <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="18" stroke="rgba(124,92,191,0.3)" stroke-width="2"/><polygon points="24,22 24,38 42,30" stroke="rgba(124,92,191,0.3)" stroke-width="2" fill="none"/></svg>
+        </div>
+      </div>
+      <!-- Bottom right 3 smaller items -->
+      <div class="p-item">
+        <div class="p-placeholder" style="background: linear-gradient(135deg,#EDE8F8,#D8D0F0); min-height:190px;">
+          <svg viewBox="0 0 60 60" fill="none"><rect x="12" y="12" width="36" height="36" rx="18" stroke="rgba(124,92,191,0.3)" stroke-width="2"/><path d="M20 30h20M30 20v20" stroke="rgba(124,92,191,0.3)" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <div class="p-item">
+        <div class="p-placeholder" style="background: linear-gradient(135deg,#F0ECF8,#E8E0F4); min-height:190px;">
+          <svg viewBox="0 0 60 60" fill="none"><rect x="10" y="18" width="40" height="24" rx="4" stroke="rgba(124,92,191,0.3)" stroke-width="2"/><path d="M10 26l20 10 20-10" stroke="rgba(124,92,191,0.3)" stroke-width="2"/></svg>
+        </div>
+      </div>
+      <div class="p-item">
+        <div class="p-placeholder" style="background: linear-gradient(135deg,#EDD4E8,#E4CCE4); min-height:190px;">
+          <svg viewBox="0 0 60 60" fill="none"><path d="M12 44 L20 28 L28 36 L38 22 L48 44Z" stroke="rgba(124,92,191,0.3)" stroke-width="2" fill="none"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-cta">
+      <a href="#contact" class="btn-purple">See More</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <p class="contact-eyebrow">Let's Talk</p>
+      <h2 class="contact-title">Book Your Free<br>Social Media<br>Audit &amp; Consult</h2>
+      <p class="contact-sub">Let's turn your vision into a digital presence that truly connects with people.</p>
+    </div>
+    <div class="contact-right">
+      <form onsubmit="return false;">
+        <div class="form-field">
+          <input type="text" placeholder="Your name" id="fname">
+          <label for="fname" class="form-label">Name</label>
+        </div>
+        <div class="form-field">
+          <input type="email" placeholder="your@email.com" id="femail">
+          <label for="femail" class="form-label">Email</label>
+        </div>
+        <button type="submit" class="btn-purple-full">Book Your Free Consult</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="Logo.png" alt="Leah Social" style="height:38px; width:auto; filter: brightness(0) invert(1);">
+  </div>
+  <span class="footer-copy">&copy; 2025 Leah Social Media &amp; Graphic Design</span>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#portfolio">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>

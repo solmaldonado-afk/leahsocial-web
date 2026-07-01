@@ -42,14 +42,21 @@ body {
 
 .clients-bar {
   background: var(--navy);
-  padding: 16px 48px;
+  padding: 16px 24px;
   min-height: 58px;
+  width: 100%;
+}
+.clients-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 34px;
 }
-.clients-label {
+  .clients-label {
   font-size: 0.78rem;
   color: rgba(255,255,255,0.65);
   line-height: 1.4;
@@ -374,7 +381,8 @@ footer {
   .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .contact-title { font-size: 2.2rem; }
   footer { flex-direction: column; gap: 1rem; text-align: center; }
-  .clients-bar { padding: 14px 20px; gap: 18px; flex-direction: column; }
+  .clients-bar { padding: 14px 20px; }
+  .clients-inner { gap: 18px; flex-direction: column; }
   .clients-label { white-space: normal; text-align: center; }
   .clients-logos { gap: 20px; }
   .clients-logos img { max-height: 26px; }
@@ -414,7 +422,9 @@ footer {
 
   <!-- Clients bar -->
   <div class="clients-bar">
+  <div class="clients-inner">
     <span class="clients-label">We've been honored to work with:</span>
+
     <div class="clients-logos">
       <img src="logo-messianic.png" alt="Messianic Times">
       <img src="logo-elevate.png" alt="Elevate Medical Aesthetics">
@@ -423,6 +433,7 @@ footer {
       <img src="logo-mjaa.png" alt="MJAA">
     </div>
   </div>
+</div>
 </section>
 
 <!-- SERVICES -->
